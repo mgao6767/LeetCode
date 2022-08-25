@@ -41,7 +41,6 @@
  *
  *
  */
-#include <set>
 #include <vector>
 using namespace std;
 // @lc code=start
@@ -49,20 +48,11 @@ class Solution {
 
 public:
   int singleNumber(vector<int> &nums) {
-    set<int> s;
-    vector<bool> n;
-    for (auto &&i : nums) {
-      s.insert(i);
-    }
     int ans = 0;
-    for (auto &&i : s) {
-      ans += -i;
-    }
-    ans *= 2;
-    for (auto &&i : nums) {
-      ans += i;
-    }
-    return -ans;
+    for (auto &&i : nums)
+      ans ^= i;
+
+    return ans;
   }
 };
 // @lc code=end
