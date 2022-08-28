@@ -1,0 +1,66 @@
+--
+-- @lc app=leetcode id=182 lang=mysql
+--
+-- [182] Duplicate Emails
+--
+-- https://leetcode.com/problems/duplicate-emails/description/
+--
+-- database
+-- Easy (69.99%)
+-- Likes:    1282
+-- Dislikes: 52
+-- Total Accepted:    398.8K
+-- Total Submissions: 569.3K
+-- Testcase Example:  '{"headers": {"Person": ["id", "email"]}, "rows": {"Person": [[1, "a@b.com"], [2, "c@d.com"], [3, "a@b.com"]]}}'
+--
+-- Table: Person
+-- 
+-- 
+-- +-------------+---------+
+-- | Column Name | Type    |
+-- +-------------+---------+
+-- | id          | int     |
+-- | email       | varchar |
+-- +-------------+---------+
+-- id is the primary key column for this table.
+-- Each row of this table contains an email. The emails will not contain
+-- uppercase letters.
+-- 
+-- 
+-- 
+-- 
+-- Write an SQL query to report all the duplicate emails.
+-- 
+-- Return the result table in any order.
+-- 
+-- The query result format is in the following example.
+-- 
+-- 
+-- Example 1:
+-- 
+-- 
+-- Input: 
+-- Person table:
+-- +----+---------+
+-- | id | email   |
+-- +----+---------+
+-- | 1  | a@b.com |
+-- | 2  | c@d.com |
+-- | 3  | a@b.com |
+-- +----+---------+
+-- Output: 
+-- +---------+
+-- | Email   |
+-- +---------+
+-- | a@b.com |
+-- +---------+
+-- Explanation: a@b.com is repeated two times.
+-- 
+-- 
+--
+-- @lc code=start
+SELECT DISTINCT email
+FROM Person
+GROUP BY email
+HAVING count(*) > 1;
+-- @lc code=end
