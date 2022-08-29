@@ -57,6 +57,8 @@
 
 # @lc code=start
 class Solution:
+    """Check solution online for O(1), very interesting"""
+
     def isPowerOfThree(self, n: int) -> bool:
         if n == 1:
             return True
